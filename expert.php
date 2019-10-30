@@ -83,12 +83,12 @@ $arr = [];
 function combineNames($str1 = "", $str2 = "")
 {
     $params = [$str1,    $str2];
-    foreach ($params as $param) {
+    foreach ($params as $key => $param) {
         if ($param == "") {
-            $param = randomHeroName();
+            $params[$key] = randomHeroName();
         }
     }
-    echo implode($params, " - ");
+    return implode($params, " - ");
 }
 
 
@@ -109,9 +109,9 @@ function randomHeroName()
     $hero_firstnames = ["captain", "doctor", "iron", "Hank", "ant", "Wasp", "the", "Hawk", "Spider", "Black", "Carol"];
     $hero_lastnames = ["America", "Strange", "man", "Pym", "girl", "hulk", "eye", "widow", "panther", "daredevil", "marvel"];
     $heroes = [$hero_firstnames, $hero_lastnames];
-    $randname = $heroes[rand(0, count($heroes))][rand(0, 10)];
+    $randname = $heroes[rand(0, count($heroes) - 1)][rand(0, 10)];
 
-    echo $randname;
+    return $randname;
 }
 
 echo "Here is the name: " . combineNames();
@@ -183,11 +183,10 @@ new_exercise(10);
 $areTheseFruits = ['apple', 'bear', 'beef', 'banana', 'cherry', 'tomato', 'car'];
 $validFruits = ['apple', 'pear', 'banana', 'cherry', 'tomato'];
 //from here on you can change the code
-for ($i = 0; $i <= count($areTheseFruits); $i++) {
+for ($i = count($areTheseFruits) - 1; $i > 0; $i--) {
     //echo $areTheseFruits[$i] . "<br/>";
     if (!in_array($areTheseFruits[$i], $validFruits)) {
         unset($areTheseFruits[$i]);
     }
 }
-array_pop($areTheseFruits);
 var_dump($areTheseFruits);//do not change this
