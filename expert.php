@@ -29,8 +29,6 @@ $monday = $week[0];
 
 echo $monday;
 
-
-
 new_exercise(3);
 // === Exercise 3 ===
 // This should echo ` "Debugged !" `, fix it so that that is the literal text echo'ed
@@ -45,14 +43,13 @@ new_exercise(4);
 // The print_r($week) should give:  Array ( [0] => mon [1] => tues [2] => wednes [3] => thurs [4] => fri [5] => satur [6] => sun )
 // Look up whats going wrong with this code, and then fix it, with ONE CHARACTER!
 
-
+$arr = [];
 foreach ($week as $day) {
     $day = substr($day, 0, strlen($day) - 3);
-
-    $week .= $day . " ";
+    array_push($arr, $day);
 }
 
-print_r($week);
+print_r($arr);
 
 new_exercise(5);
 // === Exercise 5 ===
@@ -91,10 +88,6 @@ function combineNames($str1 = "", $str2 = "")
     return implode($params, " - ");
 }
 
-
-
-
-
 function randomGenerate($arr, $amount)
 {
     for ($i = $amount; $i > 0; $i--) {
@@ -116,8 +109,6 @@ function randomHeroName()
 
 echo "Here is the name: " . combineNames();
 
-
-
 new_exercise(7);
 
 function copyright(int $year)
@@ -126,7 +117,6 @@ function copyright(int $year)
 }
 //print the copyright
 echo copyright((int) date('Y'));
-
 
 new_exercise(8);
 
