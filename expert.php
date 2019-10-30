@@ -43,13 +43,14 @@ new_exercise(4);
 // The print_r($week) should give:  Array ( [0] => mon [1] => tues [2] => wednes [3] => thurs [4] => fri [5] => satur [6] => sun )
 // Look up whats going wrong with this code, and then fix it, with ONE CHARACTER!
 
-$arr = [];
-foreach ($week as $day) {
+//  $arr = [];
+foreach ($week as &$day) {
     $day = substr($day, 0, strlen($day) - 3);
-    array_push($arr, $day);
+    //array_push($arr, $day);
 }
 
-print_r($arr);
+//print_r($arr);
+print_r($week);
 
 new_exercise(5);
 // === Exercise 5 ===
